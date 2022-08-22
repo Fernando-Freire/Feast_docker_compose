@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+   
+    feast_ui:
+        restart: always
+        build: ./feast
+        image: feast_ui
+        container_name: feast_ui
+        ports:
+            - "3378:3378"
+#            - "6566:6566"
+        volumes:
+            - ./feast/feature_repo:/feature_repo
+

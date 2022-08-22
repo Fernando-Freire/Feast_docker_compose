@@ -1,0 +1,104 @@
+
+B
+$
+products"
+product_idJfeature_repo
+Î§©˜À€ê)Î§©˜À€ê)
+A
+#
+__dummy"
+__dummy_idJfeature_repo
+Î§©˜ˆÓš*Î§©˜ˆÓš*
+I
+)
+__dummy"
+__dummy_idJELO7_feature_store
+éë©˜èÖÙœéë©˜èÖÙœ
+J
+*
+products"
+product_idJELO7_feature_store
+éë©˜Ø¥ùœéë©˜Ø¥ùœ1"$4560fc7d-cd30-4239-aca1-46b4e90e9ca0*´ø©˜èßÂó2ß
+À
+sample_products_statsfeature_repoproducts"
+	seller_id"	
+query"
+search_page"
+position"	
+title"
+concatenated_tags"
+creation_date"	
+price"
+
+weight"
+express_delivery"
+minimum_quantity"
+view_counts"
+order_counts"
+category2€£:”creation date*creation dateZ,*/feature_repo/data/sample_products.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢sample products@b
+
+product_id
+Î§©˜ÈÅ*Î§©˜ÈÅ*2ì
+Ë
+sample_products_stats_viewELO7_feature_storeproducts"
+	seller_id"	
+query"
+search_page"
+position"	
+title"
+concatenated_tags"
+creation_date"	
+price"
+
+weight"
+express_delivery"
+minimum_quantity"
+view_counts"
+order_counts"
+category2€£:”creation date*creation dateZ,*/feature_repo/data/sample_products.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢sample products@b
+
+product_id
+éë©˜ ·•éë©˜ ·•:Ã
+¤
+sample_products_activityfeature_repoù
+sample_products_stats
+	seller_id	
+query
+search_page
+position	
+title
+concatenated_tags
+creation_date	
+price
+
+weight
+express_delivery
+minimum_quantity
+view_counts
+order_counts
+category
+Î§©˜€îû,Î§©˜€îû,:Ğ
+¯
+sample_products_activityELO7_feature_storeş
+sample_products_stats_view
+	seller_id	
+query
+search_page
+position	
+title
+concatenated_tags
+creation_date	
+price
+
+weight
+express_delivery
+minimum_quantity
+view_counts
+order_counts
+category
+éë©˜ÀÁ–Ÿéë©˜ÀÁ–ŸR
+}
+,feast.infra.online_stores.sqlite.SqliteTable"M
+/feature_repo/data/online.db-ELO7_feature_store_sample_products_stats_viewb©creation date*creation dateZ,*/feature_repo/data/sample_products.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢sample productsªELO7_feature_storez4
+feature_repo$7acfb25b-c437-48f8-bb2a-dd6aee9ceedaz:
+ELO7_feature_store$bf47fba4-7ab5-4b0e-9dc8-93f5471e1be5
