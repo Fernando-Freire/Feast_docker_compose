@@ -6,7 +6,6 @@ ENV PYTHONUNBUFFERED=1 \
     POETRY_VIRTUALENVS_CREATE=false \
     POETRY_CACHE_DIR=/usr/src/poetry_cache/ 
 
-
 RUN groupadd -r feast && useradd --no-log-init -u 1000 -r -g feast feast
 
 RUN mkdir /feature_repo && chown feast:feast /feature_repo
@@ -20,6 +19,5 @@ COPY . ./
 RUN poetry install  --no-interaction --no-ansi --no-root
 
 WORKDIR /feature_repo
-
 
 CMD ["feast","ui", "-h", "0.0.0.0","-p", "3378"]

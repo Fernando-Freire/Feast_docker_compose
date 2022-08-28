@@ -1,6 +1,6 @@
 # Feast Deployment using Docker Compose
 Easily deploy a Feast Feature Store for feature tracking.
-Registry and offline stores are parquet files inside the image.
+Registry and data sources are stored inside MiniO.
 
 
 Build and run the containers with `make start`
@@ -11,5 +11,5 @@ Other commands:
     `make serve` - runs feast container serving web ui
 
 
-Access Feast UI with http://localhost:8888
+Access Feast UI with http://localhost:3378
 

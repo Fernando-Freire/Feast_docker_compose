@@ -71,6 +71,7 @@ wait-%:
 
 
 build:
+	chmod +x wait-for-it.sh
 	@$(call message,"Construindo imagem do feast")
 	@$(COMPOSE_BUILD)
 
@@ -113,7 +114,7 @@ format:
 
 serve:
 	@$(call message,"Iniciando Feast")
-	@$(COMPOSE) up 
+	@$(COMPOSE) up -d minio feast_ui
 
 ################################################################################
 ##                               RUN TASKS                                    ##
@@ -123,6 +124,8 @@ apply:
 	@$(MAKE) format
 	@$(MAKE) lint
 	@$(call message,"Aplicando Feast")
+	@$(COMPOSE) up -d minio
+	@$(COMPOSE) up mc
 	@$(COMPOSE) run --rm feast_ui feast apply
 
 start:
