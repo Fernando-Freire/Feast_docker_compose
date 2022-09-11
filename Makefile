@@ -114,7 +114,7 @@ format:
 
 serve:
 	@$(call message,"Iniciando Feast")
-	@$(COMPOSE) up -d minio feast_ui
+	@$(COMPOSE) up -d minio redis feast_ui
 
 ################################################################################
 ##                               RUN TASKS                                    ##
@@ -126,11 +126,23 @@ apply:
 	@$(call message,"Aplicando Feast")
 	@$(COMPOSE) up -d minio
 	@$(COMPOSE) up mc
+	@$(COMPOSE) up redis
 	@$(COMPOSE) run --rm feast_ui feast apply
+
+materialize:
+	@$(MAKE) format
+	@$(MAKE) lint
+	@$(call message,"Aplicando Feast")
+	@$(COMPOSE) up -d minio
+	@$(COMPOSE) up mc
+	@$(COMPOSE) up redis
+	@$(COMPOSE) run --rm feast_ui feast materialize-incremental $(shell uuidgen)
+	@$(COMPOSE) exec redis redis-cli save
 
 start:
 	@$(MAKE) build
 	@$(MAKE) apply
+	@$(MAKE) materialize
 	@$(MAKE) serve
 
 stop:

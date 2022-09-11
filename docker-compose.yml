@@ -36,6 +36,13 @@ services:
             - ./wait-for-it.sh:/tmp/wait-for-it.sh
             - ./data/sample_products.parquet:/sample_products.parquet
             - ./data/test_products.parquet:/test_products.parquet
+
+    redis:
+        restart: always
+        image: redis:7
+        container_name: redis
+        ports:
+            - "6379:6379"
    
     feast_ui:
         restart: always
@@ -44,6 +51,7 @@ services:
         container_name: feast_ui
         depends_on:
          - minio
+         - redis
         environment:
             - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
             - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}

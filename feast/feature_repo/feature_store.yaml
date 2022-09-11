@@ -1,7 +1,9 @@
 project: ELO7_feature_store
 project_description: A sample of anonimized product's data from ELO7.
 provider: local
-online_store: null
+online_store:
+    type: redis
+    connection_string: "redis:6379"
 offline_store:
     type: file
 registry: s3://feast/registry.pb

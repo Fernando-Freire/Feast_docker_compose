@@ -6,7 +6,7 @@ authors = ["Fernando Freire Scattone <fernando.scattone@alumni.usp.br>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-feast = {extras = ["aws"], version = "^0.22.1"}
+feast = {extras = ["redis", "aws"], version = "^0.24.1"}
 isort = "^5.10.1"
 black = "^22.6.0"
 autoflake = "^1.4"
