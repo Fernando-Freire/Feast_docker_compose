@@ -72,7 +72,7 @@ wait-%:
 
 build:
 	chmod +x wait-for-it.sh
-	@$(call message,"Construindo imagem do feast")
+	@$(call message,"Construindo imagem do feast e jupyter")
 	@$(COMPOSE_BUILD)
 
 
@@ -113,8 +113,12 @@ format:
 ################################################################################
 
 serve:
-	@$(call message,"Iniciando Feast")
+	@$(call message,"Iniciando Feast UI")
 	@$(COMPOSE) up -d minio redis feast_ui
+
+jupyter:
+	@$(call message,"Iniciando Jupyter Environment")
+	@$(COMPOSE) up -d jupyter
 
 ################################################################################
 ##                               RUN TASKS                                    ##
@@ -126,8 +130,11 @@ apply:
 	@$(call message,"Aplicando Feast")
 	@$(COMPOSE) up -d minio
 	@$(COMPOSE) up mc
-	@$(COMPOSE) up redis
+	@$(COMPOSE) up -d redis
 	@$(COMPOSE) run --rm feast_ui feast apply
+
+
+
 
 materialize:
 	@$(MAKE) format
@@ -135,8 +142,8 @@ materialize:
 	@$(call message,"Aplicando Feast")
 	@$(COMPOSE) up -d minio
 	@$(COMPOSE) up mc
-	@$(COMPOSE) up redis
-	@$(COMPOSE) run --rm feast_ui feast materialize-incremental $(shell uuidgen)
+	@$(COMPOSE) up -d redis
+	@$(COMPOSE) run --rm feast_ui feast materialize-incremental $(shell date -u +"%Y-%m-%dT%H:%M:%S")
 	@$(COMPOSE) exec redis redis-cli save
 
 start:
@@ -144,6 +151,7 @@ start:
 	@$(MAKE) apply
 	@$(MAKE) materialize
 	@$(MAKE) serve
+	@$(MAKE) jupyter
 
 stop:
 	@$(call message,"Desligando tudo")

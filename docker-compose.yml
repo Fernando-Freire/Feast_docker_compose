@@ -2,6 +2,19 @@ version: '3.9'
 
 services:
 
+    jupyter:
+        image: jupyter
+        container_name: jupyter
+        build: ./notebooks
+        ports:
+        - "8888:8888"
+        volumes:
+        - "./notebooks:/usr/src/notebooks"
+        environment:
+            - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+            - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+            - FEAST_S3_ENDPOINT_URL=http://minio:9000
+
     minio:
         restart: always
         image: minio/minio:RELEASE.2022-07-04T21-02-54Z
