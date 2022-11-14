@@ -50,6 +50,20 @@ services:
             - ./data/sample_products.parquet:/sample_products.parquet
             - ./data/test_products.parquet:/test_products.parquet
 
+    mysql:
+        restart: always
+        image: mysql:8.0.29
+        container_name: mysql
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        volumes:
+            - dbdata:/var/lib/mysql
+
     redis:
         restart: always
         image: redis:7
@@ -76,5 +90,6 @@ services:
             - ./feast/feature_repo:/feature_repo
 
 volumes:
+    dbdata:
     minio_data:
 

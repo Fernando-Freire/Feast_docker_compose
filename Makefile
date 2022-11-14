@@ -114,11 +114,11 @@ format:
 
 serve:
 	@$(call message,"Iniciando Feast UI")
-	@$(COMPOSE) up -d minio redis feast_ui
+	@$(COMPOSE) up -d minio redis mysql feast_ui
 
 jupyter:
 	@$(call message,"Iniciando Jupyter Environment")
-	@$(COMPOSE) up -d jupyter
+	@$(COMPOSE) up jupyter
 
 ################################################################################
 ##                               RUN TASKS                                    ##

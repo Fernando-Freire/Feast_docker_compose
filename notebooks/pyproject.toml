@@ -12,6 +12,7 @@ jupyter = ">=1.0.0"
 ipywidgets = ">=7.6.5"
 matplotlib = ">=3.5.1"
 feast = {extras = ["redis", "aws"], version = "^0.24.1"}
+PyMySQL = "^1.0.2"
 
 [tool.poetry.dev-dependencies]
 
